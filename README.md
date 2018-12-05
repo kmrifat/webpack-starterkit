@@ -17,7 +17,7 @@ Configured webpack for web design who like to use webpack without wasting time b
 Webpack starterkit require `nodejs-v8` or later.
 
 ```
-git clone
+git clone https://github.com/kmrifat/webpack-starterkit.git
 cd webpack-starterkit
 npm install && npm start
 ```
