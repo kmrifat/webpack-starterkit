@@ -1,0 +1,30 @@
+@import 'vendors/bootstrap';
+
+@import 'vendors/fontawesome';
+
+body{
+    background-image: url(../assets/images/background.jpg);
+    background-size: cover;
+    background-position: inherit;
+    background-repeat: no-repeat;
+    .content{
+        margin-top: 34vh;
+
+        .d-flex{
+            img{
+                height: 100px;
+            }
+            .plus{
+                font-size: 38px;
+                font-weight: 700;
+                margin-top: 25px;
+                padding: 2px 10px;
+            }
+        }
+
+        .author{
+            margin: 5px 0px 0px 350px;
+        }
+    }
+    
+}

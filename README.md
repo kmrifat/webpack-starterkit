@@ -48,13 +48,13 @@ Open webpack startkit in your favorite IDE/Texteditor. You will see a source tre
 |-- README.md
 `-- webpack.config.js
 ```
-`webpack.config.js` you can add/remove webpack plugins by customize this file. \
-`package.json` contain node packages. \
-`src/assets` it's folder with two sub folder images and icons you need to save images what to want to add your website. you can delete default subfolders but do not delete or rename `src/assets` folder.\
-`src/css` it's a folder with a .css file you can simply delete it you you don't wont to working with css.\
-`src/pages` in this folder you will have your html files.\
-`src/scss` scss folder contain `vendors` folder and a file called `main.scss` bootstrap and fontawesome 5 are configured in this folder. you can add more vendors scss if you like to .\
-`src/app.js`
+- `webpack.config.js` you can add/remove webpack plugins by customize this file. \
+- `package.json` contain node packages. \
+- `src/assets` it's folder with two sub folder images and icons you need to save images what to want to add your website. you can delete default subfolders but do not delete or rename 
+- `src/css` it's a folder with a .css file you can simply delete it you you don't wont to working with css.\
+- `src/pages` in this folder you will have your html files.\
+- `src/scss` scss folder contain `vendors` folder and a file called `main.scss` bootstrap and fontawesome 5 are configured in this folder. you can add more vendors scss if you like to .\
+- `src/app.js`
 ```
 import './scss/main.scss'; // imported main scss
 
