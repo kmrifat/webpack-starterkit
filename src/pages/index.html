@@ -8,8 +8,11 @@
     <title>Webpack starterkit by - K M Rifat ul alom</title>
 </head>
 
-<body>
-    <div class="text-center content">
+<body style="background-image:url(${require('../assets/images/background.jpg')})">
+
+    ${require('./components/navbar.html')}
+
+    <div class="text-center content" >
         <h1 class="mb-5">Webpack starterkit</h1>
         <div class="d-flex justify-content-center">
             <img src="../assets/icons/webpack.png" height="100px" alt="">
@@ -22,6 +25,8 @@
         </div>
         <p class="author"><small>Brought to you by</small> - K M Rifat ul alom</p>
     </div>
+
+    ${require('./components/footer.html')}
 </body>
 
 </html>

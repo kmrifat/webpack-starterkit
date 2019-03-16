@@ -8,7 +8,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 
-const mode = process.env.NODE_ENV; 
+const mode = process.env.NODE_ENV;
 const ASSET_PATH = mode == 'development' ? '/' : './';
 
 
@@ -27,7 +27,17 @@ module.exports = {
             // css loader
             { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
             // html loader 
-            { test: /\.(html)$/, use: { loader: 'html-loader', options: { attrs: ['img:src'] } } },
+            {
+                test: /\.(html)$/,
+                include : path.join(__dirname,'src/pages'),
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        interpolate: true,
+                        attrs: ['img:src']
+                    }
+                }
+            },
             // image loader
             {
                 test: /\.(png|svg|jpg|gif|jpeg)$/, use: [{
