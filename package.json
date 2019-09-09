@@ -4,10 +4,9 @@
   "description": "N/A",
   "main": "index.js",
   "scripts": {
-    "text": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development webpack -d --watch",
     "prod": "NODE_ENV=production webpack -p",
-    "start": "NODE_ENV=development webpack-dev-server"
+    "start": "NODE_ENV=development webpack-dev-server --open"
   },
   "author": "Rifat ul alom",
   "license": "ISC",
