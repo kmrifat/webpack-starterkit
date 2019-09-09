@@ -10,11 +10,20 @@ const path = require('path');
 
 const mode = process.env.NODE_ENV;
 const ASSET_PATH = mode == 'development' ? '/' : './';
+const pages = require('./page.config');
 
+var htmlPages = pages.map(function (entryName) {
+    return new HtmlWebpackPlugin({
+        filename: entryName + '.html',
+        template: __dirname + `/src/pages/${entryName}.html`
+    })
+})
 
 module.exports = {
     mode: mode,
-    entry: './src/app.js',
+    entry: {
+        main: './src/scripts/app.js'
+    },
     output: {
         path: __dirname + '/dist',
         filename: '[name].bundle.js',
@@ -29,7 +38,7 @@ module.exports = {
             // html loader 
             {
                 test: /\.(html)$/,
-                include : path.join(__dirname,'src/pages'),
+                include: path.join(__dirname, 'src/pages'),
                 use: {
                     loader: 'html-loader',
                     options: {
@@ -78,12 +87,17 @@ module.exports = {
             'window.jQuery': 'jquery',
             Popper: ['popper.js', 'default'],
         }),
-        // create html page
-        new HtmlWebpackPlugin({
-            title: 'Home',
-            filename: 'index.html',
-            template: 'src/pages/index.html',
-            // minimize : true
-        }),
-    ]
+
+        
+
+
+
+        // // create html page
+        // new HtmlWebpackPlugin({
+        //     title: 'Home',
+        //     filename: 'index.html',
+        //     template: 'src/pages/index.html',
+        //     // minimize : true
+        // }),
+    ].concat(htmlPages)
 }
