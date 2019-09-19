@@ -10,24 +10,31 @@ const path = require('path');
 
 const mode = process.env.NODE_ENV;
 const ASSET_PATH = mode == 'development' ? '/' : './';
+const script = require('./script.config');
 const pages = require('./page.config');
 
 var htmlPages = pages.map(function (entryName) {
-    return new HtmlWebpackPlugin({
-        filename: entryName + '.html',
-        template: __dirname + `/src/pages/${entryName}.html`
-    })
+    if (typeof entryName === "object") {
+        return new HtmlWebpackPlugin(entryName);
+    } else {
+        return new HtmlWebpackPlugin({
+            filename: entryName + '.html',
+            template: __dirname + `/src/pages/${entryName}.html`
+        });
+    }
 })
+
 
 module.exports = {
     mode: mode,
-    entry: {
-        main: './src/scripts/app.js'
-    },
+    entry: script,
     output: {
         path: __dirname + '/dist',
         filename: '[name].bundle.js',
         publicPath: ASSET_PATH,
+    },
+    devServer: {
+        host: '0.0.0.0'
     },
     module: {
         rules: [
@@ -88,16 +95,5 @@ module.exports = {
             Popper: ['popper.js', 'default'],
         }),
 
-        
-
-
-
-        // // create html page
-        // new HtmlWebpackPlugin({
-        //     title: 'Home',
-        //     filename: 'index.html',
-        //     template: 'src/pages/index.html',
-        //     // minimize : true
-        // }),
     ].concat(htmlPages)
 }

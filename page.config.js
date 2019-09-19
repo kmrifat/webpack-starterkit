@@ -1,5 +1,7 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var entry = [
-    'index'
-];
+    'index',
+]
 
 module.exports = entry;
